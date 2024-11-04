@@ -23,7 +23,7 @@ public class DirectoryManager {
     public void checkDirectorySize() {
         File dir = new File(directoryPath);
         long totalSize = getDirectorySize(dir); // Отримуємо загальний розмір директорії
-        if (totalSize > 100 * 1024 * 1024) { // Перевірка, чи перевищує розмір 100 MB
+        if (totalSize > 100 * 1024) { // Перевірка, чи перевищує розмір 100 MB
             deleteOldFiles(dir); // Видаляємо старі файли, якщо потрібно
         }
     }
@@ -33,7 +33,7 @@ public class DirectoryManager {
         File[] files = dir.listFiles();
         if (files != null) {
             for (File file : files) {
-                if (getDirectorySize(dir) < 50 * 1024 * 1024) break; // Перевірка, чи зменшився розмір до 50 MB
+                if (getDirectorySize(dir) < 50 * 1024) break; // Перевірка, чи зменшився розмір до 50 MB
                 file.delete(); // Видаляємо файл
             }
         }
